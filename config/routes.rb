@@ -1,6 +1,10 @@
 WeddingTestApp::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
+  get "users/new"
+  root  'static_pages#home'
+  match '/signup',    to: 'users#new',    via: 'get'
+  match '/vendors',    to: 'static_pages#vendors',    via: 'get'
+  match '/events',   to: 'static_pages#events',   via: 'get'
+  match '/account', to: 'static_pages#account', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
