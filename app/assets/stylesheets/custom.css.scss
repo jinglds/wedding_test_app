@@ -26,8 +26,6 @@ textarea {
   margin-bottom: 10px;
 }
 
-
-
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -48,6 +46,7 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: #999;
+  font-family:Tahoma;
 }
 
 p {
@@ -61,7 +60,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color:  #FF6666;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -70,10 +69,37 @@ p {
 }
 
 #logo:hover {
-  color: #fff;
+  color:  #E65C5C;
   text-decoration: none;
 }
+.nav-header > li > a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  color:  #196363;
+  
+  border-radius: 2px;
+  margin: 5px;
+  &:hover{
+    color:    #E65C5C;
+    
+  }
+  
 
+}
+#signin-btn{
+  border-style: solid ;
+  border-width: 2px;
+  border-color:   #196363;
+  &:hover{
+    border-color: #FF6666;
+    color: white;
+    background-color: #FF6666;
+  }
+
+}
 
 /* footer */
 
@@ -104,4 +130,27 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 10px;
+}
+
+
+/* VENDORS*/
+
+.filter-bar{
+  border-top: 1px solid #EEEEEE;
+  border-bottom: 1px solid #EEEEEE;
+  
+}
+.filter-btn >li{
+  border-left: 1px solid #EEEEEE;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.impact{
+  font-family: impact;
+}
+
+.tahoma{
+  font-family: Lucida Sans Unicode;
 }
