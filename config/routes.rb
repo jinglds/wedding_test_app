@@ -1,8 +1,10 @@
 WeddingTestApp::Application.routes.draw do
-  resources:users
-  get "users/new"
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'
   match '/signup',    to: 'users#new',    via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/vendors',    to: 'static_pages#vendors',    via: 'get'
   match '/events',   to: 'static_pages#events',   via: 'get'
   match '/account', to: 'static_pages#account', via: 'get'
