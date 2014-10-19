@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
-
+  before_action :correct_user,   only: :destroy
 
   def create
   	@event = current_user.events.build(event_params)
@@ -13,6 +13,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event.destroy
+    redirect_to root_url
   end
 
   private
@@ -24,5 +26,10 @@ class EventsController < ApplicationController
   								:budget,
   								:bride_name,
   								:groom_name)
+  end
+
+    def correct_user
+        @event = current_user.events.find_by(id: params[:id])
+        redirect_to root_url if @event.nil?
   end
 end
