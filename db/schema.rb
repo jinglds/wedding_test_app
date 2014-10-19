@@ -11,7 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016061958) do
+ActiveRecord::Schema.define(version: 20141019130544) do
+
+  create_table "events", force: true do |t|
+    t.integer  "user_id"
+    t.string   "event_type"
+    t.string   "name"
+    t.date     "date"
+    t.time     "time"
+    t.integer  "budget"
+    t.string   "bride_name"
+    t.string   "groom_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
+
+  create_table "shops", force: true do |t|
+    t.integer  "user_id"
+    t.string   "shop_type"
+    t.string   "name"
+    t.string   "price_range"
+    t.string   "description"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "address"
+    t.string   "primary_contact"
+    t.string   "website"
+    t.string   "details"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shops", ["user_id", "created_at"], name: "index_shops_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "email"
