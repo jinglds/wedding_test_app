@@ -5,10 +5,11 @@
       <nav>
         <ul class="nav navbar-nav pull-right nav-header">
           <li><%= link_to "Home",    root_path , class: "nav-btn" %></li>
-          <li><%= link_to "Vendors",    vendors_path, class: "nav-btn" %></li>
-          <li><%= link_to "Events",    events_path, class: "nav-btn" %></li>
-          <li><%= link_to "Acount",    account_path, class: "nav-btn" %></li>
           <% if signed_in? %>
+            <li><%= link_to "Vendors",    vendors_path, class: "nav-btn" %></li>
+            <li><%= link_to "Events",    events_path, class: "nav-btn" %></li>
+            <li><%= link_to "Acount",    account_path, class: "nav-btn" %></li>
+          
             <li><%= link_to "Users", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
