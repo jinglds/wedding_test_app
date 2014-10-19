@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
 
   def vendors
     if signed_in?
-      @shops = Shop.all.paginate(page: params[:page])
+      @vendor_feed_items = Shop.all.paginate(page: params[:page])
     end
   end
 

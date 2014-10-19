@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
 
 
   def create
@@ -13,6 +14,8 @@ class ShopsController < ApplicationController
   end
 
   def destroy
+    @shop.destroy
+    redirect_to root_url
   end
 
   private
@@ -25,6 +28,12 @@ class ShopsController < ApplicationController
   								:primary_contact,
   								:details,
                   :email)
+  end
+
+
+  def correct_user
+        @shop = current_user.shops.find_by(id: params[:id])
+        redirect_to root_url if @shop.nil?
   end
 end
 
