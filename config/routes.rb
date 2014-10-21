@@ -3,6 +3,11 @@ WeddingTestApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :shops, only: [:create, :destroy]
   resources :events, only: [:create,:destroy]
+
+  namespace :api do
+    resources :shops
+  end
+
   root  'static_pages#home'
   match '/signup',    to: 'users#new',    via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
