@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @shops = @user.shops.paginate(page: params[:page])
     @events = @user.events.paginate(page: params[:page])
     @ratings = (@user.get_up_voted Shop).paginate(page: params[:page])
+    @favorites = @user.favorite_shops.order('shops.created_at')
   end
 
   def new

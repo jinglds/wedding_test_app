@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	acts_as_voter
+	has_many :favorites
+	has_many :favorite_shops, through: :favorites, source: :favorited, source_type: 'Shop'
 	has_many :shops, dependent: :destroy
 	has_many :events, dependent: :destroy
 	before_save { self.email = email.downcase }

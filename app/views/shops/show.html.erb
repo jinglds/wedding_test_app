@@ -11,5 +11,13 @@
     <%= link_to "Fav it!", like_shop_path(@shop), method: :put %>
    
 </div>
+
+
+
+
+<%= link_to 'Add to favorites', favorite_shops_path(shop_id: @shop), method: :post %>
+
+<%= link_to 'Remove from favorites', favorite_shop_path(@shop), method: :delete %>
+
 <% end %>
 	

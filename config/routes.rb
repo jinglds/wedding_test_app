@@ -1,5 +1,6 @@
 WeddingTestApp::Application.routes.draw do
   resources :users
+  resources :favorite_shops, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :shops do
    member do
