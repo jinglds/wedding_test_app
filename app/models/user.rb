@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	acts_as_voter
 	has_many :shops, dependent: :destroy
 	has_many :events, dependent: :destroy
 	before_save { self.email = email.downcase }

@@ -3,6 +3,7 @@ class ShopsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
 
+
   def create
   	@shop = current_user.shops.build(shop_params)
   	if @shop.save
@@ -18,6 +19,36 @@ class ShopsController < ApplicationController
     redirect_to root_url
   end
 
+  def show
+    @user = current_user
+    @shop = Shop.find(params[:id])
+    # @comment = Comment.new 
+    # @comment_items =  @shop.comment_feed.paginate(page: params[:page], per_page: 10)
+  end
+
+
+  def upvote
+    @shop = Shop.find(params[:id])
+    @shop.liked_by current_user
+    
+
+    respond_to do |format|
+      format.html { redirect_to @shop }
+      format.js
+    end
+
+  end
+
+  def downvote
+    @shop = Shop.find(params[:id])
+    @shop.downvote_from current_user
+   
+
+    respond_to do |format|
+      format.html { redirect_to @shop }
+      format.js
+    end
+  end
   private
   def shop_params
   	params.require(:shop).permit(:shop_type,

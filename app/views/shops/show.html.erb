@@ -1,0 +1,15 @@
+<% provide(:title, @shop.name) %>
+
+
+<% if signed_in? %>
+<%= @shop.name %>
+<%= @shop.get_upvotes.size %> Likes
+<div id="like_form">
+  
+    <%= link_to "UnFav", dislike_shop_path(@shop), method: :put %>          
+  
+    <%= link_to "Fav it!", like_shop_path(@shop), method: :put %>
+   
+</div>
+<% end %>
+	

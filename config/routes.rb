@@ -1,7 +1,12 @@
 WeddingTestApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :shops, only: [:create, :destroy]
+  resources :shops do
+   member do
+      put "like", to: "shops#upvote"
+      put "dislike", to: "shops#downvote"
+    end
+  end
   resources :events, only: [:create,:destroy]
 
   namespace :api do
