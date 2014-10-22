@@ -22,5 +22,13 @@
         <%= render @events %>
       </ol>
     <% end %>
+    <% if @ratings.any? %>
+      <h3>My Fav Shop (<%= @ratings.size %>)</h3>
+      <ol class="microposts">
+        <%= render @ratings %>
+      </ol>
+      <%= will_paginate @ratings %>
+    <% end %>
   </div>
+
 </div>

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @shops = @user.shops.paginate(page: params[:page])
     @events = @user.events.paginate(page: params[:page])
+    @ratings = (@user.get_up_voted Shop).paginate(page: params[:page])
   end
 
   def new
