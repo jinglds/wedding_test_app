@@ -4,8 +4,8 @@ WeddingTestApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :shops do
    member do
-      put "like", to: "shops#upvote"
-      put "dislike", to: "shops#downvote"
+      put "rate", to: "shops#rate"
+      put "unrate", to: "shops#unrate"
     end
   end
   resources :events, only: [:create,:destroy]

@@ -22,26 +22,26 @@ class ShopsController < ApplicationController
   def show
     @user = current_user
     @shop = Shop.find(params[:id])
+    @ratings = (@shop.get_upvotes.sum(:vote_weight).to_f / @shop.get_upvotes.size)
     # @comment = Comment.new 
     # @comment_items =  @shop.comment_feed.paginate(page: params[:page], per_page: 10)
   end
 
-
-  def upvote
+  def rate
     @shop = Shop.find(params[:id])
-    @shop.liked_by current_user
     
+    @shop.liked_by current_user, :vote_weight => params[:rating]
 
     respond_to do |format|
       format.html { redirect_to @shop }
       format.js
     end
-
   end
 
-  def downvote
+
+  def unrate
     @shop = Shop.find(params[:id])
-    @shop.downvote_from current_user
+    @shop.unliked_by current_user
    
 
     respond_to do |format|
